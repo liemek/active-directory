@@ -19,7 +19,7 @@ Import-Module ADDSDeployment
 Install-ADDSForest
 ```
 
-3. Installation changes the DNS Server address to a loop address. Let's fix it.
+3. Installation process changes the DNS Server address to a loop address. Let's fix it.
 
 ```shell
 Get-DNSClientServerAddress
@@ -32,16 +32,6 @@ Get-DNSClientServerAddress
 ```shell
 Add-Computer -DomainName domain.local -Credential domain\Administrator -Force -Restart
 ```
-### Troubleshooting
-
-1. Change DNS Server address on the Workstation
-```shell
-Get-DNSClientServerAddress
-Set-DNSClientServerAddress -InterfaceIndex x -ServerAddresses 192.168.x.x
-Get-DNSClientServerAddress
-```
-
-2. Make sure the Domain Controller is running
 
 ### Useful cmdlets
 
